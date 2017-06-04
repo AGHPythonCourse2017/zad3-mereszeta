@@ -21,3 +21,9 @@ Dodatkowo trzeba wykonać trzy recenzje rozwiązań zadania nr 2 i umieścić w 
 Treść zadania w Google Drive: https://goo.gl/nYD1E3
 
 Termin oddania zadania: 29 maja 2017, 20:00
+
+
+Update from @mereszeta:
+    If you want to use check_with_search you have to provide your search engine id + your api key in separate file like:
+    your_engine_id
+    your_api_key
