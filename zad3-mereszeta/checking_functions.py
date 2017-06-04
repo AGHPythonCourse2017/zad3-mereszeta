@@ -1,6 +1,6 @@
-import connections
-import article_parser
-from file_parser import ListOfWebsitesProvider
+from .article_parser import ArticleParser
+from .connections import SentimentChecker,GoogleApiProvider
+from .file_parser import ListOfWebsitesProvider
 
 
 class TruthChecker:
@@ -12,10 +12,10 @@ class TruthChecker:
 
     def check_one(self):
         self.lp.compare(self.url)
-        ap = article_parser.ArticleParser(self.url)
+        ap = ArticleParser(self.url)
         self.topic = ap.title
         ap.check_if_author()
-        sc = connections.SentimentChecker(self.url, ap.content)
+        sc = SentimentChecker(self.url, ap.content)
         sc.show_info_about_sentiment()
         print('this algorithm will not tell you is it a fake news, but previous information could be helpful')
 
@@ -23,13 +23,13 @@ class TruthChecker:
         if self.path_to_key == '':
             print('you have to provide your own google api key and search id in separate file')
             return
-        gp = connections.GoogleApiProvider(self.path_to_key)
+        gp = GoogleApiProvider(self.path_to_key)
         self.check_one()
         gp.make_search(self.topic)
         for link in gp.links:
             print('checking articles from google search')
-            ap = article_parser.ArticleParser(self.url)
+            ap = ArticleParser(link)
             ap.check_if_author()
-            sc=connections.SentimentChecker(self.url,ap.content)
+            sc= SentimentChecker(link, ap.content)
             sc.show_info_about_sentiment()
             print('you have recieved additional info about articles connected with your, use it wisely')

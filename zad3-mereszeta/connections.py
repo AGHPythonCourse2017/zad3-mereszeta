@@ -1,7 +1,6 @@
-import article_parser
 import requests
-from file_parser import KeyProvider
 from apiclient.discovery import build
+from .file_parser import KeyProvider
 
 
 class SentimentChecker:
