@@ -9,7 +9,8 @@ class SentimentChecker:
         self.sentiment = 'neutral'
 
     def check_sentiment(self):
-        req = requests.post('http://text-processing.com/api/sentiment/', data=self.art)
+        text={"text":self.art}
+        req = requests.post('http://text-processing.com/api/sentiment/', data=text)
         js = req.json()
         self.sentiment = js['label']
 
