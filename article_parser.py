@@ -12,3 +12,8 @@ class ArticleParser:
         self.auth = base_art.authors
         self.domain = '{uri.netloc}'.format(uri=urlparse(url))
 
+    def check_if_author(self):
+        if self.auth=='':
+            print('your article has no author')
+        else:
+            print('author of your article is named, you can google him if he is trustworthy')

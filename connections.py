@@ -5,14 +5,21 @@ from apiclient.discovery import build
 
 
 class SentimentChecker:
-    def __init__(self, url):
-        self.art = article_parser.ArticleParser(url)
+    def __init__(self, url, content):
+        self.art = content
         self.sentiment = 'neutral'
 
     def check_sentiment(self):
-        req = requests.post('http://text-processing.com/api/sentiment/', data=self.art.content)
+        req = requests.post('http://text-processing.com/api/sentiment/', data=self.art)
         js = req.json()
         self.sentiment = js['label']
+
+    def show_info_about_sentiment(self):
+        self.check_sentiment()
+        if self.sentiment == 'pos' or self.sentiment == 'neg':
+            print('your article seems to be biased in some way')
+        else:
+            print('your article seems to be objective')
 
 
 class GoogleApiProvider:
