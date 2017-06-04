@@ -16,4 +16,5 @@ class ArticleParser:
         if self.auth=='':
             print('your article has no author')
         else:
-            print('author of your article is named, you can google him if he is trustworthy')
+            print('name of author is'+self.auth)
+            print('author of your article is named , you can google him if he is trustworthy')
