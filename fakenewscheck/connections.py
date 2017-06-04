@@ -28,7 +28,7 @@ class GoogleApiProvider:
         self.links = []
 
     def make_search(self, topic):
-        search = build(self.kp.name, self.kp.key)
+        search = build(serviceName=self.kp.name,developerKey=self.kp.key)
         results = search.cse().list(q=topic, cx=self.kp.name).execute()
         for result in results:
             self.links.append(result['link'])
