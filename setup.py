@@ -7,5 +7,5 @@ setup(name='fakenewscheck',
       author='mereszeta',
       author_email='grzegorzszeremeta@gmail.com',
       license='MIT',
-      packages=['zad3-mereszeta'],
+      packages=['fakenewscheck'],
       zip_safe=False)
