@@ -1,6 +1,6 @@
 from newspaper import Article
 from urllib.parse import urlparse
-import pprint
+from pprint import PrettyPrinter
 
 
 class ArticleParser:
@@ -14,9 +14,10 @@ class ArticleParser:
         self.domain = '{uri.netloc}'.format(uri=urlparse(url))
 
     def check_if_author(self):
-        if not self.auth:
-            pprint('your article has no author')
+        pp=PrettyPrinter()
+        if len(self.auth)==0:
+            pp.pprint('your article has no author')
         else:
-            pprint('name of author is:')
-            pprint(self.auth)
-            pprint('author of your article is named , you can google him if he is trustworthy')
+            pp.pprint('name of author is:')
+            pp.pprint(self.auth)
+            pp.pprint('author of your article is named , you can google him if he is trustworthy')
