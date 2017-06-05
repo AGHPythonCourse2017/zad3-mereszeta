@@ -14,7 +14,7 @@ class ArticleParser:
         self.domain = '{uri.netloc}'.format(uri=urlparse(url))
 
     def check_if_author(self):
-        if self.auth == '':
+        if not self.auth:
             pprint('your article has no author')
         else:
             pprint('name of author is:')
