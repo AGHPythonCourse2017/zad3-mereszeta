@@ -46,4 +46,7 @@ class ListOfWebsitesProvider:
                 if(site['Desc']!='' and site['Desc']!=' '):
                     print('authors have also provided small description about your site')
                     print(site['Desc'])
-                    break
+                    return
+        print('website you sent was not tagged as biased or fake')
+
+

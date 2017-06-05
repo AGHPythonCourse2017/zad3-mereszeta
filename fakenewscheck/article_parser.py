@@ -15,7 +15,7 @@ class ArticleParser:
 
     def check_if_author(self):
         pp=PrettyPrinter()
-        if len(self.auth)==0:
+        if not self.auth:
             pp.pprint('your article has no author')
         else:
             pp.pprint('name of author is:')
